@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="erli_update_flag" xsi:type="array">
+                    <item name="class" xsi:type="string">Edirect\Erli\Ui\DataProvider\Product\Form\Modifier\Attributes</item>
+                    <item name="sortOrder" xsi:type="number">1000</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Action\Attribute\Save">
+        <plugin name="erli_update_product_attribute_mass_Action" type="Edirect\Erli\Plugin\CatalogProductAttributeSavePlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Framework\Notification\MessageList">
+        <arguments>
+            <argument name="messages" xsi:type="array">
+                <item name="erli_system_message" xsi:type="string">Edirect\Erli\Model\System\Message\ErliNotification</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

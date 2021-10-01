@@ -1,0 +1,49 @@
+"Erli Integration","Integracja z Erli",module,Edirect_Erli
+"General Configuration","Konfiguracja ogólna",module,Edirect_Erli
+"Cron Configuration","Konfiguracja Cron",module,Edirect_Erli
+"Check Erli Api Connection","Test połączenia z Api Erli",module,Edirect_Erli
+"Check Connection","Testuj połączenie",module,Edirect_Erli
+"Connection Success","Połączenie powiodło się",module,Edirect_Erli
+"Connection Error. Please check Api Url, Api Key and try again.","Błąd połączenia. Sprawdź adres URL Api, klucz Api i spróbuj ponownie.",module,Edirect_Erli
+"Order synchronization time period","Czas synchronizacji zamówień",module,Edirect_Erli
+"Update products time period","Czas aktualizacji produktów",module,Edirect_Erli
+"Erli - update","Erli - aktualizacja danych produktu",module,Edirect_Erli
+"Erli Dispatch Unit","Erli - wysyłka produktu - jednostka czasu",module,Edirect_Erli
+"Erli Dispatch Period","Erli - wysyłka produktu - czas trwania",module,Edirect_Erli
+"Erli Price List","Erli - cennik dostaw",module,Edirect_Erli
+"default","domyślny",module,Edirect_Erli
+"Product Update","Aktualizacja produktu",module,Edirect_Erli
+"Erli Data Configuration","Konfiguracja danych produktu",module,Edirect_Erli
+"Products prices","Ceny produktów ze sklepu",module,Edirect_Erli
+"Please select the store view from which the prices will be collected","Proszę wybrać sklep z którego mają być pobierane ceny produktów",module,Edirect_Erli
+"Simple product description","Źródło opisu produktów",module,Edirect_Erli
+"Please select where the description for the simple product should be set from","Proszę wybrać skąd ma być pobierany opis do produktu",module,Edirect_Erli
+"Product price based on rules","Zastosowanie reguł cenowych",module,Edirect_Erli
+"Please select whether products prices should based on price rules","Proszę wybrać czy ceny produktów mają zależeć od reguł cenowych",module,Edirect_Erli
+"Product price rules customer group","Grupa klientów dla reguł cenowych",module,Edirect_Erli
+"Please select customer group on which product prices rules were based","Proszę wybrać grupę klientów na której mają się opierać reguły cenowe",module,Edirect_Erli
+"Hour","Godzina",module,Edirect_Erli
+"Day","Dzień",module,Edirect_Erli
+"Month","Miesiąc",module,Edirect_Erli
+"from simple","z prostego",module,Edirect_Erli
+"from configurable","z konfigurowalnego",module,Edirect_Erli
+"Shipping Method Mapping","Mapowanie metod dostawy",module,Edirect_Erli
+"Magento Shipping Method","Metoda dostawy Magento",module,Edirect_Erli
+"Erli Shipping Method","Metoda dostawy Erli",module,Edirect_Erli
+"Set Product Full Synchronization Cron Job","Ustaw zadanie Cron dla pełnej synchronizacji produktu",module,Edirect_Erli
+"Magento Status For Erli Pending","Status Magento dla statusu Erli Pending",module,Edirect_Erli
+"Magento Status For Erli Purchased","Status Magento dla statusu Erli Purchased",module,Edirect_Erli
+"Magento Status For Erli Purchased COD","Status Magento dla statusu Erli Purchased COD",module,Edirect_Erli
+"Delivery Status","Status dostawy",module,Edirect_Erli
+"Magento Status For Erli Preparing","Status Magento dla statusu Erli Preparing",module,Edirect_Erli
+"Magento Status For Erli WaitingForCourier","Status Magento dla statusu Erli WaitingForCourier",module,Edirect_Erli
+"Magento Status For Erli Sent","Status Magento dla statusu Erli Sent",module,Edirect_Erli
+"Delivery Tracking Vendor","Dostawcy (Delivery Tracking Vendor)",module,Edirect_Erli
+"Erli Number","Numer Erli",module,Edirect_Erli
+"Additional Information","Informacje dodatkowe",module,Edirect_Erli
+"Erli Order Number","Numer zamówienia Erli",module,Edirect_Erli
+"Order Number: <strong>%1</strong>","Nr zamówienia: <strong>%1</strong>",module,Edirect_Erli
+"Erli Payment","Płatność Erli",module,Edirect_Erli
+"Make sure that API URL ends with '/' (slash), e.g. https://yourdomain/api/url/","Upewnij się, że adres API URL kończy się znakiem '/' (ukośnik), np. https://yourdomain/api/url/",module,Edirect_Erli
+"There was a problem syncing orders with erli. Please check <a href=""%1"">here</a>.","Wystąpił problem z synchronizacją zamówień z erli. Proszę sprawdzić <a href=""%1"">tutaj</a>.",module,Edirect_Erli
+"Registered Hooks","Zarejestrowane Hooki",module,Edirect_Erli

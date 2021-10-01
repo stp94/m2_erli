@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+    <router id="admin">
+        <route id="erli" frontName="erli">
+            <module name="Edirect_Erli" before="Magento_Adminhtml" />
+        </route>
+    </router>
+</config>

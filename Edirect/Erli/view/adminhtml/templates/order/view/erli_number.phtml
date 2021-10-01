@@ -1,0 +1,31 @@
+<?php
+/**
+ * @category  Edirect
+ * @package   Edirect_Erli
+ * @author    edirect24 <biuro@edirect24.pl>
+ * @copyright Copyright (c) 2021 edirect24
+ */
+
+use Magento\Backend\Block\Widget\Container;
+use Edirect\Erli\ViewModel\ErliNumber;
+
+/** @var Container $block */
+/** @var ErliNumber $viewModel */
+$viewModel = $block->getViewModel();
+?>
+
+<?php if ($viewModel->getErliNumber()): ?>
+    <div class="admin__page-section-title">
+        <span class="title"><?= /* @noEscape */ __('Additional Information') ?></span>
+    </div>
+    <div class="admin__page-section-content ">
+        <div class="admin__page-section-item order-erlinumber">
+            <div class="admin__page-section-item-title">
+                <span class="title"><?= /* @noEscape */ __('Erli Order Number') ?></span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <div class="order-erlinumber-title"><?= /* @noEscape */ __('Order Number: <strong>%1</strong>', $block->escapeHtml($viewModel->getErliNumber())); ?></div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ed_erli_log" resource="default" engine="innodb" comment="Erli Logs Table">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="object_name" nullable="true" length="16" comment="Object Name"/>
+        <column xsi:type="varchar" name="object_id" nullable="true" comment="Object ID"/>
+        <column xsi:type="varchar" name="method_name" nullable="false" length="32" comment="Method Name"/>
+        <column xsi:type="varchar" name="function_name" nullable="false" length="32" comment="Function Name"/>
+        <column xsi:type="varchar" name="response_status" nullable="false" length="16" comment="Response Status"/>
+        <column xsi:type="varchar" name="response_message" nullable="false" length="255" comment="Response Message"/>
+        <column xsi:type="varchar" name="response_additional_message" nullable="false" length="255" comment="Response Additional Message"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="quote" resource="checkout" engine="innodb" comment="Quote">
+        <column xsi:type="varchar" length="32" nullable="true" name="erli_id" comment="Erli Order Id"/>
+    </table>
+    <table name="sales_order" resource="sales" engine="innodb" comment="Sales Order">
+        <column xsi:type="varchar" length="32" nullable="true" name="erli_id" comment="Erli Order Id"/>
+        <column xsi:type="timestamp" name="erli_updated_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="false" comment="Erli Updeted At"/>
+    </table>
+    <table name="ed_erli_shipping_method" resource="default" engine="innodb" comment="Erli Shipping Method">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="method_id" nullable="false" length="64" comment="ID"/>
+        <column xsi:type="varchar" name="method_name" nullable="false" length="64" comment="Name"/>
+        <column xsi:type="tinyint" name="cod" nullable="false" comment="COD"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="ed_erli_problematic_orders" resource="default" engine="innodb" comment="Erli Problematic Orders Table">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="order_id" nullable="false" length="32" comment="Order Id"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ED_ERLI_PROBLEMATIC_ORDERS_ORDER_ID">
+            <column name="order_id"/>
+        </constraint>
+    </table>
+</schema>

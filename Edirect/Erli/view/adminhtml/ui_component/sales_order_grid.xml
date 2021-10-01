@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <column name="erli_id" class="Edirect\Erli\Ui\Component\Order\Column\ErliNumber">
+            <settings>
+                <label translate="true">Erli Number</label>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <sortable>true</sortable>
+                <filter>text</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>

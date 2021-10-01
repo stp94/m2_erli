@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_before">
+        <observer name="edirect_erli_observer_salesorderplacebefore"
+                  instance="Edirect\Erli\Observer\SalesOrderPlaceBefore"/>
+    </event>
+    <event name="order_cancel_after">
+        <observer name="edirect_erli_observer_ordercancelafter" instance="Edirect\Erli\Observer\OrderCancelAfter"/>
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="edirect_erli_observer_salesmodelservicequotesubmitbefore"
+                  instance="Edirect\Erli\Observer\SaveOrderBeforeSalesModelQuote"/>
+    </event>
+    <event name="catalog_product_save_before">
+        <observer name="edirect_erli_observer_catalogproductsavebefore"
+                  instance="Edirect\Erli\Observer\CatalogProductSaveBefore"/>
+    </event>
+    <event name="catalog_product_save_after">
+        <observer name="edirect_erli_observer_catalogproductsaveafter"
+                  instance="Edirect\Erli\Observer\CatalogProductSaveAfter"/>
+    </event>
+    <event name="catalog_product_delete_after_done">
+        <observer name="edirect_erli_observer_catalogproductdeleteafterdone"
+                  instance="Edirect\Erli\Observer\CatalogProductDeleteAfterDone"/>
+    </event>
+    <event name="admin_system_config_changed_section_erli">
+        <observer name="admin_system_config_changed_section_erli"
+                  instance="Edirect\Erli\Observer\ConfigChange"/>
+    </event>
+</config>

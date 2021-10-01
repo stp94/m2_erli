@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="edirect" translate="label" sortOrder="9999">
+            <label>Edirect24</label>
+        </tab>
+        <section id="erli" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>Erli Integration</label>
+            <tab>edirect</tab>
+            <resource>Edirect_Erli::erli_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>General Configuration</label>
+                <field id="api_url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>API Url</label>
+                    <validate>required-entry</validate>
+                    <comment><![CDATA[Make sure that API URL ends with '/' (slash), e.g. https://yourdomain/api/url/]]></comment>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>API Key</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="verifyhost" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>CURL Connection SSL Verify Host</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="keepalive" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>CURL Connection Keep Alive</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to 1, TCP keepalive probes will be sent. The delay and frequency of these probes can be controlled by the CURLOPT_TCP_KEEPIDLE and CURLOPT_TCP_KEEPINTVL options, provided the operating system supports them. If set to 0 (default) keepalive probes are disabled.</comment>
+                </field>
+                <field id="keepidle" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>CURL Connection Keep Idle</label>
+                    <comment>Sets the delay, in seconds, that the operating system will wait while the connection is idle before sending keepalive probes, if CURLOPT_TCP_KEEPALIVE is enabled. Not all operating systems support this option. The default is 60.</comment>
+                    <depends>
+                        <field id="erli/general/keepalive">1</field>
+                    </depends>
+                </field>
+                <field id="keepintvl" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>CURL Connection Keep Intvl</label>
+                    <comment>Sets the interval, in seconds, that the operating system will wait between sending keepalive probes, if CURLOPT_TCP_KEEPALIVE is enabled. Not all operating systems support this option. The default is 60.</comment>
+                    <depends>
+                        <field id="erli/general/keepalive">1</field>
+                    </depends>
+                </field>
+                <field id="hooks" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Registered Hooks</label>
+                    <frontend_model>Edirect\Erli\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="connection" translate="label" type="button" sortOrder="998" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Check Erli Api Connection</label>
+                    <frontend_model>Edirect\Erli\Block\System\Config\Connection</frontend_model>
+                </field>
+                <field id="mapping" translate="label" type="button" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Shipping Method Mapping</label>
+                    <frontend_model>Edirect\Erli\Block\System\Config\Mapping</frontend_model>
+                </field>
+            </group>
+            <group id="cron" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Cron Configuration</label>
+                <field id="order_synchro" translate="Order synchronization time period" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Order synchronization time period</label>
+                    <comment><![CDATA[<strong>*/5 * * * *</strong> Run Cron at every 5th minute (<a href="https://crontab.guru">https://crontab.guru</a>)]]></comment>
+                </field>
+                <field id="update_products" translate="Update products time period" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Update products time period</label>
+                    <comment><![CDATA[<strong>*/20 * * * *</strong> Run Cron at every 20th minute (<a href="https://crontab.guru">https://crontab.guru</a>)]]></comment>
+                </field>
+                <field id="set_product_update_cron" translate="label" type="button" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Set Product Full Synchronization Cron Job</label>
+                    <frontend_model>Edirect\Erli\Block\System\Config\SetProductUpdateCron</frontend_model>
+                </field>
+            </group>
+            <group id="data" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Erli Data Configuration</label>
+                <field id="price" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Products prices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Store</source_model>
+                    <comment>Please select the store view from which the prices will be collected</comment>
+                </field>
+                <field id="simple_description" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Simple product description</label>
+                    <source_model>Edirect\Erli\Model\Config\Source\SimpleProductDescription</source_model>
+                    <comment>Please select where the description for the simple product should be set from</comment>
+                </field>
+                <field id="price_rule_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Product price based on rules</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Please select whether products prices should based on price rules</comment>
+                </field>
+                <field id="price_rule_customer_group" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Product price rules customer group</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group\Multiselect</source_model>
+                    <comment>Please select customer group on which product prices rules were based</comment>
+                </field>
+            </group>
+            <group id="order_status" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Order Status</label>
+                <field id="pending" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli Pending</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="purchased" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli Purchased</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+                <field id="purchased_cod" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli Purchased COD</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+            </group>
+            <group id="delivery_status" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Delivery Status</label>
+                <field id="preparing" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli Preparing</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+                <field id="waitingForCourier" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli WaitingForCourier</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+                <field id="sent" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Magento Status For Erli Sent</label>
+                    <source_model>Edirect\Erli\Model\Config\Source\Order\Status\Complete</source_model>
+                </field>
+                <field id="vendor" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Delivery Tracking Vendor</label>
+                    <comment>Coma separeted</comment>
+                </field>
+            </group>
+            <group id="shipping_method" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Shipping Method Mapping</label>
+                <field id="mapping" translate="label" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Method</label>
+                    <frontend_model>Edirect\Erli\Block\Adminhtml\Form\Field\Mapping</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+        <section id="payment">
+            <group id="erli" translate="label" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Erli Payment</label>
+                <field id="active" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Name</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/hooks/checkBuyAbility" method="POST">
+        <service class="Edirect\Erli\Api\HooksInterface" method="checkBuyAbility" />
+        <resources>
+            <!--<resource ref="Edirect_Erli::edirect_erli_checkbuyability" />-->
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Edirect_Erli::edirect" title="Edirect24" sortOrder="999">
+                    <resource id="Edirect_Erli::edirect_erli" title="Erli Integration" sortOrder="10">
+                        <resource id="Edirect_Erli::edirect_erli_erlilog" title="Erli Integration Log" translate="title" sortOrder="10"/>
+                        <resource id="Edirect_Erli::edirect_erli_checkbuyability" title="Hook Check Buy Ability" translate="title" sortOrder="20"/>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Edirect_Erli::erli_config" title="Erli Integration" sortOrder="999"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

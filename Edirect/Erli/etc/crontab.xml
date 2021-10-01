@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="edirect_erli_cron_group">
+        <job name="edirect_erli_cronjob_create_orders" instance="Edirect\Erli\Cron\CreateOrders" method="execute">
+            <config_path>erli/cron/order_synchro</config_path>
+        </job>
+        <job name="edirect_erli_cronjob_update_orders" instance="Edirect\Erli\Cron\UpdateOrders" method="execute">
+            <config_path>erli/cron/order_synchro</config_path>
+        </job>
+        <job name="edirect_erli_cronjob_create_product" instance="Edirect\Erli\Cron\CreateProducts" method="execute">
+            <schedule>0 1 * * *</schedule>
+        </job>
+        <job name="edirect_erli_cronjob_update_product" instance="Edirect\Erli\Cron\UpdateProducts" method="execute">
+            <config_path>erli/cron/update_products</config_path>
+        </job>
+        <job name="edirect_erli_cronjob_update_shipping_method" instance="Edirect\Erli\Cron\UpdateErliShippingMethod" method="execute">
+            <schedule>0 3 * * 0</schedule>
+        </job>
+        <job name="edirect_erli_cronjob_clear_logs" instance="Edirect\Erli\Cron\ClearLogs" method="execute">
+            <schedule>0 1 * * *</schedule>
+        </job>
+        <job name="edirect_erli_cronjob_clear_problematic_orders" instance="Edirect\Erli\Cron\ClearProblematicOrders" method="execute">
+            <schedule>0 4 * * *</schedule>
+        </job>
+    </group>
+</config>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <erli>
+            <general>
+                <keepidle>60</keepidle>
+                <keepintvl>60</keepintvl>
+            </general>
+            <cron>
+                <order_synchro>*/5 * * * *</order_synchro>
+                <update_products>*/20 * * * *</update_products>
+            </cron>
+            <data>
+                <price>0</price>
+            </data>
+            <data>
+                <simple_description>configurable</simple_description>
+            </data>
+        </erli>
+        <payment>
+            <erli>
+                <active>1</active>
+                <title>Erli Payment</title>
+                <model>Edirect\Erli\Model\Payment\Erli</model>
+            </erli>
+        </payment>
+    </default>
+</config>

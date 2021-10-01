@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="create_products_cron" xsi:type="object">Edirect\Erli\Console\Command\CreateProductsCronCommand</item>
+                <item name="update_products_cron" xsi:type="object">Edirect\Erli\Console\Command\UpdateProductsCronCommand</item>
+                <item name="clear_logs_cron" xsi:type="object">Edirect\Erli\Console\Command\ClearLogsCronCommand</item>
+                <item name="create_orders_cron" xsi:type="object">Edirect\Erli\Console\Command\CreateOrdersCronCommand</item>
+                <item name="update_orders_cron" xsi:type="object">Edirect\Erli\Console\Command\UpdateOrdersCronCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Edirect\Erli\Api\HooksInterface" type="Edirect\Erli\Model\Hooks\CheckBuyAbility" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\Reporting">
+        <plugin name="sales_grid_collection" type="Edirect\Erli\Plugin\Sales\Order\Grid"/>
+    </type>
+</config>

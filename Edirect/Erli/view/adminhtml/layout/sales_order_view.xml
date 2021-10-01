@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_additional_info">
+            <container name="erlinumber_info" htmlTag="section" htmlClass="admin__page-section order-view-additional-info">
+                <block name="erlinumber.viewmodel" template="Edirect_Erli::order/view/erli_number.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Edirect\Erli\ViewModel\ErliNumber</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,32 @@
+{
+    "name": "edirect/erli",
+    "description": "Edirect Erli",
+    "require": {
+      "php": "~5.6.0|7.0.2|~7.0.6",
+      "magento/module-store": "*",
+      "magento/module-theme": "*",
+      "magento/module-widget": "*",
+      "magento/module-backend": "*",
+      "magento/module-catalog": "*",
+      "magento/module-email": "*",
+      "magento/module-ui": "*",
+      "magento/module-variable": "*",
+      "magento/module-media-storage": "*",
+      "magento/framework": "*",
+      "magento/magento-composer-installer": "*"
+    },
+    "type": "magento2-module",
+    "version": "*",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "extra": {
+        "map": [
+            [
+                "*",
+                "Edirect/Erli"
+            ]
+        ]
+    }
+}

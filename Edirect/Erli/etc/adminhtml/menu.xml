@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category  Edirect
+@package   Edirect_Erli
+@author    edirect24 <biuro@edirect24.pl>
+@copyright Copyright (c) 2021 edirect24
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Edirect_Erli::edirect" title="Edirect24" module="Edirect_Erli" sortOrder="100" resource="Edirect_Erli::edirect"/>
+        <!-- Erli Log Menu -->
+        <add id="Edirect_Erli::edirect_erli" title="Erli Integration" translate="title" module="Edirect_Erli" sortOrder="10" parent="Edirect_Erli::edirect" resource="Edirect_Erli::edirect_erli"/>
+        <add id="Edirect_Erli::edirect_erli_erlilog" title="Erli Integration Log" module="Edirect_Erli" sortOrder="10" parent="Edirect_Erli::edirect_erli" action="erli/erlilog/index" resource="Edirect_Erli::edirect_erli_erlilog"/>
+    </menu>
+</config>
